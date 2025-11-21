@@ -42,7 +42,7 @@ export const Hero = () => {
         >
 
           {/* Title - Massive & Bold */}
-          <h1 className="relative text-[18vw] md:text-[14rem] font-serif font-black tracking-tighter leading-[0.8] select-none z-20">
+          <h1 className="relative text-[14vw] md:text-[11rem] font-serif font-black tracking-tighter leading-[0.8] select-none z-20">
             {/* Silhouette/Cutout Effect */}
             <span className="relative text-transparent bg-clip-text bg-gradient-to-b from-black via-rust-950 to-black drop-shadow-[0_2px_10px_rgba(255,100,0,0.3)]">
               DOBROGEA
