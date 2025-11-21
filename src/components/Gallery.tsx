@@ -1,8 +1,6 @@
-
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { SectionId } from '../types';
-import { Eye } from 'lucide-react';
 
 const images = [
   {
@@ -31,7 +29,7 @@ const images = [
   },
 ];
 
-export const Gallery: React.FC = () => {
+export const Gallery = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -91,4 +89,3 @@ export const Gallery: React.FC = () => {
     </section>
   );
 };
-

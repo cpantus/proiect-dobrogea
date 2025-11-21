@@ -1,12 +1,10 @@
-
-import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { SectionId } from '../types';
 import { Play } from 'lucide-react';
 
-export const Hero: React.FC = () => {
+export const Hero = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, 400]);
+  // Removed unused 'y' variable
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
   const textY = useTransform(scrollY, [0, 600], [0, 150]);
 
@@ -52,7 +50,7 @@ export const Hero: React.FC = () => {
             </span>
 
             {/* Overlay Texture for 'Ancient' feel */}
-            <span className="absolute inset-0 text-transparent bg-clip-text bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay pointer-events-none">
+            <span className="absolute inset-0 text-transparent bg-clip-text bg-url('https://www.transparenttextures.com/patterns/cubes.png') opacity-20 mix-blend-overlay pointer-events-none">
                DOBROGEA
             </span>
           </h1>
@@ -97,4 +95,3 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
-
