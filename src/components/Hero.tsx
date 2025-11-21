@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
           {/* Using inline style for font-size guarantees browser application, bypassing Tailwind CDN parsing issues */}
           <h1
             className="relative font-serif font-black tracking-tighter leading-[0.9] md:leading-[0.8] select-none z-20 py-4"
-            style={{ fontSize: 'clamp(3rem, 12vw, 14rem)' }}
+            style={{ fontSize: 'clamp(2.5rem, 12vw, 14rem)' }}
           >
             {/* Silhouette/Cutout Effect */}
             <span className="relative text-transparent bg-clip-text bg-gradient-to-b from-black via-rust-950 to-black drop-shadow-[0_2px_10px_rgba(255,100,0,0.3)]">
