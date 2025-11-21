@@ -1,141 +1,77 @@
+import { Product, Screening } from './types';
 
-import React from 'react';
-import { SectionId } from '../types';
-import { PRODUCTS, TRAILER_URL } from '../constants';
-import { ShoppingBag, Download, ArrowRight, Play } from 'lucide-react';
+export const TRAILER_URL = 'https://www.youtube.com/watch?v=j4H0bNdofEc';
 
-export const Shop: React.FC = () => {
-  const SHOP_URL = 'https://www.rbsservice.ro/proiectdobrogea';
+export const SCREENINGS: Screening[] = [
+  {
+    id: '1',
+    city: 'Bucharest',
+    venue: 'Cinema City AFI Cotroceni',
+    date: 'Oct 24, 2024',
+    time: '19:00',
+    ticketLink: 'https://www.iabilet.ro',
+  },
+  {
+    id: '2',
+    city: 'Cluj-Napoca',
+    venue: 'Cinema Florin Piersic',
+    date: 'Oct 26, 2024',
+    time: '20:00',
+    ticketLink: 'https://www.iabilet.ro',
+  },
+  {
+    id: '3',
+    city: 'Constanța',
+    venue: 'Jean Constantin Center',
+    date: 'Oct 28, 2024',
+    time: '18:30',
+    ticketLink: 'https://www.iabilet.ro',
+  },
+  {
+    id: '4',
+    city: 'Tulcea',
+    venue: 'Teatrul Jean Bart',
+    date: 'Nov 02, 2024',
+    time: '19:00',
+    ticketLink: 'https://www.iabilet.ro',
+  },
+];
 
-  return (
-    <section id={SectionId.SHOP} className="py-32 bg-[#0c0a09] text-stone-100 relative overflow-hidden">
-      {/* Abstract Background Shapes */}
-      <div className="absolute top-0 right-0 w-[80vw] h-[80vw] bg-rust-900/10 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 border-b border-stone-800 pb-12">
-          <div>
-             <span className="text-orange-500 font-bold text-sm uppercase tracking-[0.4em] mb-6 block">The Store</span>
-             <h3 className="text-6xl md:text-8xl font-serif font-black text-white tracking-tight leading-none">
-               MERCH<span className="text-rust-600">ANDISE</span>
-             </h3>
-          </div>
-          <div className="mt-8 md:mt-0">
-             <a
-               href={SHOP_URL}
-               target="_blank"
-               rel="noopener noreferrer"
-               className="flex items-center gap-3 text-white hover:text-orange-500 transition-colors text-sm uppercase tracking-widest font-bold group border px-6 py-3 border-stone-700 hover:border-orange-500"
-             >
-               View Full Catalog <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-             </a>
-          </div>
-        </div>
-
-        {/* Physical Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-48">
-          {PRODUCTS.map((product) => (
-            <a
-              key={product.id}
-              href={product.link || SHOP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group cursor-pointer relative flex flex-col"
-            >
-              <div className="relative overflow-hidden aspect-[3/4] mb-8 bg-stone-900 border border-stone-800 shadow-2xl">
-
-                {/* Image */}
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out brightness-90 group-hover:brightness-105"
-                />
-
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-
-                {/* Quick Add Button */}
-                <div className="absolute bottom-6 right-6 w-14 h-14 bg-orange-600 rounded-full flex items-center justify-center text-white translate-y-24 group-hover:translate-y-0 transition-transform duration-500 ease-out shadow-[0_0_20px_rgba(234,88,12,0.5)] hover:bg-orange-500 z-20">
-                   <ShoppingBag size={20} />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2 mt-auto">
-                <h4 className="text-2xl font-serif font-bold text-white group-hover:text-orange-500 transition-colors leading-none">{product.name}</h4>
-                <div className="flex justify-between items-center border-t border-stone-800 pt-4 mt-2">
-                  <p className="text-stone-400 text-sm max-w-[70%] line-clamp-1">{product.description}</p>
-                  <span className="font-mono text-white font-bold text-xl">€{product.price}</span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Digital Download Feature */}
-        <div id={SectionId.DOWNLOAD} className="relative overflow-hidden rounded-none bg-stone-900 border-y border-stone-800 group h-auto md:h-[80vh] flex items-center py-20 md:py-0">
-           {/* Hero Image Background */}
-           <div className="absolute inset-0 bg-[url('https://imgur.com/rLembA0.png')] bg-cover bg-center opacity-40 md:opacity-60 group-hover:scale-105 transition-transform duration-[3s] grayscale-[20%] group-hover:grayscale-0" />
-
-           {/* Responsive Gradient: Vertical (bottom-up) on mobile, Horizontal (left-right) on desktop */}
-           <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/95 to-transparent/50 md:bg-gradient-to-r md:from-[#0c0a09] md:via-[#0c0a09]/90 md:to-transparent" />
-
-           <div className="relative z-10 w-full px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20 items-center">
-
-             {/* Text Content - Order 2 on Mobile (Bottom), Order 1 on Desktop (Left) */}
-             <div className="relative z-30 order-2 lg:order-1">
-                <div className="inline-flex items-center gap-3 px-5 py-2 bg-rust-600/20 border border-rust-500/50 text-rust-400 mb-10 backdrop-blur-md">
-                  <Download size={16} />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em]">Available Now</span>
-                </div>
-                <h2 className="text-5xl md:text-8xl font-serif font-black mb-8 text-white leading-[0.9]">
-                  DIGITAL <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-rust-600">MASTERPIECE</span>
-                </h2>
-                <p className="text-stone-300 text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-lg max-w-lg">
-                  Experience the storm in 4K HDR. Feel every thunderclap with Dolby Atmos. The definitive director's cut.
-                </p>
-                <div className="flex flex-wrap gap-6">
-                  <a
-                    href={SHOP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-12 py-5 bg-orange-600 text-white font-black uppercase tracking-widest hover:bg-white hover:text-black transition-colors shadow-[0_0_30px_rgba(234,88,12,0.4)] inline-block text-center"
-                  >
-                    Buy 4K Copy • €25
-                  </a>
-                  <a
-                    href={SHOP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-12 py-5 border-2 border-stone-600 text-stone-300 font-bold uppercase tracking-widest hover:border-orange-500 hover:text-orange-500 transition-colors backdrop-blur-sm inline-block text-center"
-                  >
-                    Rent HD • €5
-                  </a>
-                </div>
-             </div>
-
-             {/* Video Preview Mockup - Order 1 on Mobile (Top), Order 2 on Desktop (Right) */}
-             <div className="relative aspect-video bg-black shadow-2xl border border-stone-800 md:group-hover:shadow-[0_0_50px_rgba(154,52,18,0.3)] transition-all duration-700 transform md:group-hover:-rotate-1 z-20 order-1 lg:order-2">
-                 <img src="https://imgur.com/lUvcdIY.png" alt="Preview" className="w-full h-full object-cover opacity-100 md:opacity-70 md:group-hover:opacity-100 transition-opacity" />
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    <a
-                      href={TRAILER_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform cursor-pointer group/play"
-                    >
-                       <Play size={32} className="fill-white text-white ml-2" />
-                    </a>
-                 </div>
-                 <div className="absolute bottom-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-rust-400 border border-rust-900">
-                    RAW FORMAT
-                 </div>
-             </div>
-           </div>
-        </div>
-
-      </div>
-    </section>
-  );
-};
-
+export const PRODUCTS: Product[] = [
+  {
+    id: 'p5',
+    name: 'Dobrogea: The Album',
+    description: 'The definitive photographic collection. 300 pages of the wild ancient land.',
+    price: 85,
+    image: 'https://imgur.com/RPHn40X.png',
+    category: 'merch',
+    link: 'https://www.rbsservice.ro/proiectdobrogea',
+  },
+  {
+    id: 'p1',
+    name: 'The Blue Hour Tree',
+    description: 'Limited edition fine art print. The iconic solitary oak standing against the winter night.',
+    price: 180,
+    image: 'https://imgur.com/ZgULn43.png',
+    category: 'print',
+    link: 'https://www.rbsservice.ro/proiectdobrogea',
+  },
+  {
+    id: 'p2',
+    name: 'Fortress Storm',
+    description: 'Dramatic lightning strike over the ancient Enisala ruins. High-gloss acrylic finish.',
+    price: 220,
+    image: 'https://imgur.com/5SkKEK4.png',
+    category: 'print',
+    link: 'https://www.rbsservice.ro/proiectdobrogea',
+  },
+  {
+    id: 'p3',
+    name: 'Golden Morning',
+    description: '2025 Calendar featuring the warm embrace of the Dobrogea sun.',
+    price: 35,
+    image: 'https://imgur.com/fuSOkq5.png',
+    category: 'calendar',
+    link: 'https://www.rbsservice.ro/proiectdobrogea',
+  },
+];
