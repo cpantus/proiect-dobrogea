@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { SectionId } from '../types';
-import { PRODUCTS } from '../constants';
+import { PRODUCTS, TRAILER_URL } from '../constants';
 import { ShoppingBag, Download, ArrowRight, Play } from 'lucide-react';
 
 export const Shop: React.FC = () => {
@@ -73,21 +73,25 @@ export const Shop: React.FC = () => {
         </div>
 
         {/* Digital Download Feature */}
-        <div id={SectionId.DOWNLOAD} className="relative overflow-hidden rounded-none bg-stone-900 border-y border-stone-800 group h-[80vh] flex items-center">
+        <div id={SectionId.DOWNLOAD} className="relative overflow-hidden rounded-none bg-stone-900 border-y border-stone-800 group h-auto md:h-[80vh] flex items-center py-20 md:py-0">
            {/* Hero Image Background */}
-           <div className="absolute inset-0 bg-[url('https://imgur.com/rLembA0.png')] bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-[3s] grayscale-[20%] group-hover:grayscale-0" />
-           <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a09] via-[#0c0a09]/90 to-transparent" />
+           <div className="absolute inset-0 bg-[url('https://imgur.com/rLembA0.png')] bg-cover bg-center opacity-40 md:opacity-60 group-hover:scale-105 transition-transform duration-[3s] grayscale-[20%] group-hover:grayscale-0" />
 
-           <div className="relative z-10 w-full px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-             <div>
+           {/* Responsive Gradient: Vertical (bottom-up) on mobile, Horizontal (left-right) on desktop */}
+           <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/95 to-transparent/50 md:bg-gradient-to-r md:from-[#0c0a09] md:via-[#0c0a09]/90 md:to-transparent" />
+
+           <div className="relative z-10 w-full px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20 items-center">
+
+             {/* Text Content - Order 2 on Mobile (Bottom), Order 1 on Desktop (Left) */}
+             <div className="relative z-30 order-2 lg:order-1">
                 <div className="inline-flex items-center gap-3 px-5 py-2 bg-rust-600/20 border border-rust-500/50 text-rust-400 mb-10 backdrop-blur-md">
                   <Download size={16} />
                   <span className="text-xs font-bold uppercase tracking-[0.2em]">Available Now</span>
                 </div>
-                <h2 className="text-6xl md:text-8xl font-serif font-black mb-8 text-white leading-[0.9]">
+                <h2 className="text-5xl md:text-8xl font-serif font-black mb-8 text-white leading-[0.9]">
                   DIGITAL <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-rust-600">MASTERPIECE</span>
                 </h2>
-                <p className="text-stone-300 text-xl font-light leading-relaxed mb-12 drop-shadow-lg max-w-lg">
+                <p className="text-stone-300 text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-lg max-w-lg">
                   Experience the storm in 4K HDR. Feel every thunderclap with Dolby Atmos. The definitive director's cut.
                 </p>
                 <div className="flex flex-wrap gap-6">
@@ -110,13 +114,18 @@ export const Shop: React.FC = () => {
                 </div>
              </div>
 
-             {/* Video Preview Mockup */}
-             <div className="relative aspect-video bg-black shadow-2xl border border-stone-800 group-hover:shadow-[0_0_50px_rgba(154,52,18,0.3)] transition-all duration-700 transform group-hover:-rotate-1">
-                 <img src="https://imgur.com/lUvcdIY.png" alt="Preview" className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" />
+             {/* Video Preview Mockup - Order 1 on Mobile (Top), Order 2 on Desktop (Right) */}
+             <div className="relative aspect-video bg-black shadow-2xl border border-stone-800 md:group-hover:shadow-[0_0_50px_rgba(154,52,18,0.3)] transition-all duration-700 transform md:group-hover:-rotate-1 z-20 order-1 lg:order-2">
+                 <img src="https://imgur.com/lUvcdIY.png" alt="Preview" className="w-full h-full object-cover opacity-100 md:opacity-70 md:group-hover:opacity-100 transition-opacity" />
                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform cursor-pointer group/play">
+                    <a
+                      href={TRAILER_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform cursor-pointer group/play"
+                    >
                        <Play size={32} className="fill-white text-white ml-2" />
-                    </div>
+                    </a>
                  </div>
                  <div className="absolute bottom-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-rust-400 border border-rust-900">
                     RAW FORMAT
