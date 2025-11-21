@@ -1,10 +1,10 @@
-import { Navbar } from './components/Navbar.tsx';
-import { Hero } from './components/Hero.tsx';
-import { Story } from './components/Story.tsx';
-import { Gallery } from './components/Gallery.tsx';
-import { Screenings } from './components/Screenings.tsx';
-import { Shop } from './components/Shop.tsx';
-import { Footer } from './components/Footer.tsx';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { Story } from './components/Story';
+import { Gallery } from './components/Gallery';
+import { Screenings } from './components/Screenings';
+import { Shop } from './components/Shop';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
